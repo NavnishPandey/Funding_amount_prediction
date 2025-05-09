@@ -1,70 +1,108 @@
-# Getting Started with Create React App
+# Project Title: Loan Funded Amount Prediction
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 📦 Project Overview
 
-## Available Scripts
+This project involves predicting the funded amount of loans based on various features such as longitude, latitude, lender count, population density, and precipitation. The objective is to build a regression model using multiple algorithms and select the best-performing model for deployment. The final model is deployed using a Flask backend and a React frontend for user interaction.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## ✅ Project Workflow:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. **Data Collection and Understanding:**
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+   * Synthetic data was generated for the features including longitude, latitude, lender count, population density, and precipitation.
 
-### `npm test`
+2. **Data Preprocessing:**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+   * Handling missing values.
+   * Data type conversions (e.g., converting strings to floats).
+   * Feature scaling using StandardScaler.
+   * Outlier detection and removal using Z-score analysis.
 
-### `npm run build`
+3. **Feature Selection:**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+   * Correlation matrix analysis to identify highly correlated features.
+   * Feature importance analysis using Random Forest.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+4. **Model Experimentation:**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   * Multiple regression models were implemented and evaluated:
 
-### `npm run eject`
+     * Linear Regression
+     * Lasso Regression
+     * Ridge Regression
+     * Random Forest Regressor
+   * Evaluation metrics included RMSE, MAE, and R² score.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+5. **Model Selection:**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   * Random Forest Regressor was selected as the final model due to its superior performance in terms of accuracy and robustness to overfitting.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 🛠️ Implementation:
 
-## Learn More
+1. **Backend:** Flask
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+   * API endpoint `/predict` was created to accept user inputs and return the predicted funded amount.
+   * Model was saved as a pickle file (`rf_model.pkl`) and loaded during API initialization.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+2. **Frontend:** React
 
-### Code Splitting
+   * A user interface was developed to collect user inputs for the prediction model.
+   * Axios was used to communicate with the Flask backend to fetch the prediction.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+3. **Integration:**
 
-### Analyzing the Bundle Size
+   * CORS was enabled to handle requests between React and Flask.
+   * The response from the Flask API was displayed in a user-friendly manner on the React interface.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## 🚀 How to Run the Project:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+1. Clone the repository:
 
-### Advanced Configuration
+   ```bash
+   git clone https://github.com/username/repo-name.git
+   cd repo-name
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+2. Install the backend dependencies:
 
-### Deployment
+   ```bash
+   cd backend
+   pip install -r requirements.txt
+   python app.py
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+3. Install the frontend dependencies:
 
-### `npm run build` fails to minify
+   ```bash
+   cd frontend
+   npm install
+   npm start
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+
+## 📦 Dependencies:
+
+* Python 3.x
+* Flask
+* Flask-CORS
+* scikit-learn
+* React
+* Axios
+
+---
+
+## ✨ Future Enhancements:
+
+* Implement model versioning and performance tracking.
+* Deploy the application using Docker and AWS.
+* Add additional features like interest rate, loan term, and credit score.
+
+---
+
+Feel free to contribute and suggest improvements!
