@@ -10,7 +10,7 @@ app = Flask(__name__)
 CORS(app)
 
 # Load the model
-model = pickle.load(open(r'C:\Users\Alka\Documents\Fund_amount-prediction\funding_amount_prediction\backend\rf_model.pkl', 'rb'))
+model = pickle.load(open(r'rf_model.pkl', 'rb')) # give path of model
 
 @app.route('/predict', methods=['POST'])
 def predict():
