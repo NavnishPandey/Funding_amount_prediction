@@ -10,7 +10,7 @@ This project involves predicting the funded amount of loans based on various fea
 
 1. **Data Collection and Understanding:**
 
-   * Synthetic data was generated for the features including longitude, latitude, lender count, population density, and precipitation.
+   * Augmented data was generated for the features including longitude, latitude, lender count, population density, and precipitation.
 
 2. **Data Preprocessing:**
 
